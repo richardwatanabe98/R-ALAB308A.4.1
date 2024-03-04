@@ -1,6 +1,5 @@
-
-
-
+const breeds = [];
+const url = 'https://api.thecatapi.com/v1/breeds';
 
 // The breed selection input element.
 const breedSelect = document.getElementById("breedSelect");
@@ -19,8 +18,12 @@ const API_KEY = "live_Ycsbz69IAUsiIVTbhpcT4WobBLTQ6eFEy68Qu9HMG2L0eZFuKnZpQyxmcP
 async function initialLoad () {
     // Retrieve a list of breeds from the cat API using fetch
     try {
-        const url = await fetch('https://api.thecapi.com/v1/breeds');
-        
+        const url = await fetch(url);
+
+         // Create options and append them to the breedSelect
+
+
+
     } catch(error){
         console.error
     }
