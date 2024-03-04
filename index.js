@@ -1,5 +1,3 @@
-const breeds = [];
-const url = 'https://api.thecatapi.com/v1/breeds';
 
 // The breed selection input element.
 const breedSelect = document.getElementById("breedSelect");
@@ -18,13 +16,28 @@ const API_KEY = "live_Ycsbz69IAUsiIVTbhpcT4WobBLTQ6eFEy68Qu9HMG2L0eZFuKnZpQyxmcP
 async function initialLoad () {
     // Retrieve a list of breeds from the cat API using fetch
     try {
-        const url = await fetch(url);
+        const url = await fetch('https://api.thecatapi.com/v1/breeds');
+        const response = await url.json();
 
-         // Create options and append them to the breedSelect
+         // Create options for each of these breeds, and append them to the breedSelect
+         response.forEach((breeds) => {
+            const option = document.createElement('option');
+            option.value = breeds.id;
+            option.textContent = breeds.name;
+            breedSelect.appendChild(option);
+
+            
+
+         });
+
+    
+    
 
 
 
     } catch(error){
-        console.error
+        console.error('Error fetching or processing data:', error);
     }
 }
+
+initialLoad();
